@@ -1,0 +1,42 @@
+.header{
+    padding: 5px;
+    margin: 0%;
+    display: flex;
+    height: 50px;
+    background: rgb(116,138,255);
+    background: linear-gradient(90deg, rgba(116,138,255,1) 0%, rgba(255,255,255,1) 69%);
+    border-top-left-radius: 10px;
+}
+
+.item1{
+    color: white;
+    align-self: center;
+    justify-content: space-between;
+}
+
+.item2{
+    color: blue;
+    margin-left: auto;
+}
+
+img{
+    height: 50px;
+    max-height: 100%;
+}
+
+button{
+    margin: 40px;
+    padding: 2px 30px;
+    background-color: aliceblue;
+    border-style: hidden;
+    border-radius: 2px;
+}
+
+button:hover{
+    background-color: lightblue;
+}
+
+button:focus{
+    border-radius: 5px;
+    outline: 1px black solid;
+}

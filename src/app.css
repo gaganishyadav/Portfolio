@@ -1,0 +1,162 @@
+@property --gradient-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+body{
+    margin: 0px;
+    min-height: 100%;
+    background: linear-gradient(180deg, rgb(250,250,250) 40%, rgb(50,50,50) 280%);
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+p{
+    margin:0px;
+}
+
+.header{
+    margin: 0px;
+    text-align: center;
+    height: 75px;
+    line-height: 75px;
+    background: rgb(63,94,251);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+    color: white;
+    font-family: "Edwardian Script ITC";
+    font-size: 50px;
+}
+
+button{
+    background-color: rgb(240, 248, 255);
+    border-style: hidden;
+    border-radius: 40px;
+    width: 140px;
+    height: 40px;
+}
+
+button.a{
+    padding: 0px;
+    margin-right: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    text-align: right;
+    width: 70px;
+    height: 40px;
+}
+
+button.b{
+    padding: 0px;
+    margin-left: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    text-align: left;
+    width: 70px;
+    height: 40px;
+}
+
+
+button:hover{
+    box-shadow: 10px 10px rgba(217, 206, 206, 0.350);
+    /* background-image: url(./imgs/githublogo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: transparent; */
+}
+
+button:hover+button.b{
+    box-shadow: 10px 10px rgba(217, 206, 206, 0.350);
+}
+
+button:has(+button.b:hover){
+    box-shadow: 10px 10px rgba(217, 206, 206, 0.350);
+}
+
+button.a:active{
+    background: rgb(200,200,200);
+    background: linear-gradient(90deg, rgba(200,200,200,1) 0%, rgba(220,224,227,1) 100%);
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    box-shadow: 10px 10px rgba(217, 206, 206, 0.450);
+    transform: scale(0.95, 0.95) rotate(-3deg) translate(-1px,0px);
+}
+
+button:active+button.b{
+    background: rgb(220,224,227);
+    background: linear-gradient(90deg, rgba(220,224,227,1) 0%, rgba(240,248,255,1) 100%);
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    box-shadow: 10px 10px rgba(217, 206, 206, 0.450);
+    transform: scale(0.95, 0.95) rotate(-3deg) translate(-4.6px,-3.9px);
+}
+
+button.b:active{
+    background: rgb(220,224,227);
+    background: linear-gradient(90deg, rgba(220,224,227,1) 0%, rgba(200,200,200,1) 100%);
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    box-shadow: 10px 10px rgba(217, 206, 206, 0.450);
+    transform: scale(0.95, 0.95) rotate(3deg) translate(3px,2px);
+}
+
+button:has(+ button.b:active){
+    background: rgb(240,248,255);
+    background: linear-gradient(90deg, rgba(240,248,255,1) 0%, rgba(220,224,227,1) 100%);
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    box-shadow: 10px 10px rgba(217, 206, 206, 0.450);
+    transform: scale(0.95, 0.95) rotate(3deg) translate(6.7px,-1.9px);
+}
+
+.buttons{
+    display: flex;
+    height:max-content;
+    height: 50px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.button{
+    flex-flow: row wrap;
+    flex: 1 1 1;
+}
+
+#notiftext{
+    background: rgba(248,248,248,1);
+    height:inherit;
+    border-radius: inherit;
+    padding: 20px 40px;
+}
+
+#notification{
+    font-family: Verdana;
+    visibility: hidden;
+    position: fixed;
+    top: 80px;
+    left: 40%;
+    border: none;
+    text-align: center;
+    border-radius: 60px;
+}
+
+#notification::before,
+#notification::after{
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: -2px;
+    border-radius: inherit;
+    background: conic-gradient(from var(--gradient-angle), transparent,rgba(180,200,255,0.2), rgb(100,100,255), rgba(180,200,255,0.2), transparent);
+    animation: rotation 2s linear infinite;
+}
+
+#notification::after{
+    filter: blur(10px);
+}
+
+@keyframes rotation{
+    0% {--gradient-angle:0deg;}
+    100% {--gradient-angle:360deg;}
+}
